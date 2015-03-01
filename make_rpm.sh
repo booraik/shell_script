@@ -1,19 +1,19 @@
 #!/bin/bash
 
 ###################### Argument ######################
-PKGNAME=safepc
-PKGVERSION=5.0
+PKGNAME=PACKAGE
+PKGVERSION=0.1
 
-SVNURL=http://192.168.199.4/svn/svr_spe5/trunk
-SVNPARAM="--username jenkins --password jenkins01 --no-auth-cache"
+SVNURL=http://IPAddress/svn/trunk
+SVNPARAM="--username svn_user --password svn_user_pwd --no-auth-cache"
 SPECFILE=$PKGNAME-$PKGVERSION.spec
 
 RPMROOT=/root/rpmbuild/
-RELEASE=CC_centos7
-SUMMARY="SafePC Enterprise."
+RELEASE=1
+SUMMARY="Custom Package."
 
-RELEASEPATH=/var/www/html/safepc_5.0/
-RELEASEREPO=192.168.197.18:/var/www/html/safepc_5.0/
+RELEASEPATH=/var/www/html/release/
+RELEASEREPO=192.168.197.18:/var/www/html/release/
 
 ###################### Working ######################
 LANG=C
