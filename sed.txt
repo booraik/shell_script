@@ -1,0 +1,22 @@
+
+# this file for sed.sh example
+# written by jdsong
+# "#" line is comment
+# [] token show section data
+
+SSL /usr/lib/ssl
+
+
+
+[section1]
+user=jdsong
+passwd = password
+#tel=0100100100
+addr=korea.seoul.metro
+
+[section2]
+ipaddress 127.0.0.1
+mac aa:bb:cc:dd:ee:ff
+
+
+
