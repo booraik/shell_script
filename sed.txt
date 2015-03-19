@@ -4,19 +4,19 @@
 # "#" line is comment
 # [] token show section data
 
-SSL /usr/lib/ssl
-
+SSL /usr/lib/mysql
+url="jdbc:mysql://192.168.0.0:3306/mysql"
+paper pencel ipad
+idnum   881122-1192929
 
 
 [section1]
-user=jdsong
-passwd = password
+user=
+passwd = 
 #tel=0100100100
 addr=korea.seoul.metro
 
 [section2]
 ipaddress 127.0.0.1
 mac aa:bb:cc:dd:ee:ff
-
-
 

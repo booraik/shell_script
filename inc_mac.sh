@@ -4,6 +4,7 @@
 
 # Output increase Mac Address
 # Usage : ./inc_mac.sh <Initial MAC_ADDRESS> <Increase COUNT>
+# Example : ./inc_mac.sh 00:00:00:00:00:00 10000
 
 MACADDR=$1
 INCCNT=$2
