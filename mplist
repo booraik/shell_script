@@ -21,6 +21,12 @@ do
     else
         RUNNING="O"
         LISTEN=`sudo netstat -nlp | grep -v ^unix | grep LISTEN | grep $PID | awk -F":*" '{print $2}' | awk '{print$1}' | sort -u | tr "\n" ","`
+        if [ x"$LISTEN" == "x" ]; then
+            LISTEN=`sudo netstat -nlp | grep -v ^unix | grep LISTEN | grep $LIST | awk -F":*" '{print $2}' | awk '{print$1}' | sort -u | tr "\n" ","`
+            if [ x"$LISTEN" == "x" ]; then
+            LISTEN="-"
+            fi
+        fi
         LISTEN=${LISTEN%,}
 
     fi
