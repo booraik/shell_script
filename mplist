@@ -1,0 +1,32 @@
+#!/bin/sh
+
+MPLIST="vsftpd sshd smbd httpd mpd mysqld tomcat transmission-daemon"
+
+MESSAGE="Run\tName\tPID\tListenPort\n\r"
+for LIST in $MPLIST
+do
+    PID="-"
+    RUNNING="-"
+    LISTEN="-"
+
+    if [ $LIST == "mysqld" ]; then
+        PID=`ps -ef | grep -v grep | grep "$LIST\>" | awk '{print $2}'`
+    else
+        PID=`ps -ef | grep " 1  0" | grep "$LIST\>" | awk '{print $2}'`
+    fi
+
+    if [ x"$PID" == "x" ]; then
+        RUNNING="X"
+        PID="-"
+    else
+        RUNNING="O"
+        LISTEN=`sudo netstat -nlp | grep -v ^unix | grep LISTEN | grep $PID | awk -F":*" '{print $2}' | awk '{print$1}' | sort -u | tr "\n" ","`
+        LISTEN=${LISTEN%,}
+
+    fi
+
+    MESSAGE+="[$RUNNING\t$LIST\t$PID\t$LISTEN]\n"
+done
+
+echo -e $MESSAGE
+
