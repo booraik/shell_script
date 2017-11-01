@@ -1,9 +1,8 @@
 #!/bin/bash
+# Write file what URI request count from httpd access log
+# Out file : $1.count
 
-# Parse httpd access_log
-# Output file = $file.count
 # Usage : ./parse_access_log.sh <Access Log>
-
 
 date=`date '+%m%d%H%M'`
 
@@ -30,7 +29,7 @@ while read line
 do
     ret=`awk '{print$7}' $1 | grep "$line" | wc -l`
     ret+="\t$line"
-    echo -n "..."
+    echo -n "."
     echo -e $ret >> $file"_tmp"
 done < $out_file
 
