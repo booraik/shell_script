@@ -1,4 +1,5 @@
 #!/bin/bash
+# count log 
 #Usage: ./count.sh <file> <index>
 FILE=${1:-access_log*}
 INDEX=${2:-1}
