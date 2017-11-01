@@ -1,4 +1,4 @@
-
+#!/bin/bash
 # count ip address who accessed from httpd log files
 
 # Usage: ./count.sh <file> <index>
