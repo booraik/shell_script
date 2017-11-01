@@ -1,12 +1,11 @@
-# String Control shell script Functions
-
-
-# String Replacement
+# String Replacement xontrol shell script functions
+ 
 # cut and append string
 # Parameter 1 : Source String
 # Parameter 2 : Replacement String
 # Parameter 3 : Replacement Pos
 # Parameter 4 : Replacement Length ( delete )
+
 str_replace_pos()
 {
     local STR=$1
