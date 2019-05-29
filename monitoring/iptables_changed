@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while true
+do
+    cur="$(iptables -L -n -v)"
+    sleep 10
+    if [ "$cur" != "$later" -a -n "$later" ]; then
+        echo -e "\n\n----------------"`date`"-----------"
+        diff -u -1 <(echo "$cur") <(echo "$later")
+    fi
+    later=$cur
+done
