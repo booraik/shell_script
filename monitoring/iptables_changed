@@ -2,11 +2,11 @@
 
 while true
 do
-    cur="$(iptables -L -n -v)"
-    sleep 10
+    cur="$(iptables -t filter -L f2b-sshd -n -v)"
     if [ "$cur" != "$later" -a -n "$later" ]; then
         echo -e "\n\n----------------"`date`"-----------"
-        diff -u -1 <(echo "$cur") <(echo "$later")
+        diff -u -0 <(echo "$later") <(echo "$cur") | grep -v "/dev/fd"
     fi
     later=$cur
+    sleep 10
 done
