@@ -1,12 +1,17 @@
 #!/bin/bash
+#TODO: argument(filter, time, log ...)
 
+total=0
 while true
 do
     cur="$(iptables -t filter -L f2b-sshd -n -v)"
     if [ "$cur" != "$later" -a -n "$later" ]; then
-        echo -e "\n\n----------------"`date`"-----------"
+        detect=$(echo `diff -u -0 <(echo "$later") <(echo "$cur") | grep "^+ " | wc -l`)
+        total=$((detect + total))
+        echo -e "\n\n----------------"`date`"---------------- total detected: $total "
         diff -u -0 <(echo "$later") <(echo "$cur") | grep -v "/dev/fd"
     fi
     later=$cur
     sleep 10
 done
+
